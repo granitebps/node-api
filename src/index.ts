@@ -1,7 +1,10 @@
+import { env, loadEnv } from './config/env';
 import app from './server';
 
-const server = app.listen(3000, async () => {
-  console.log(`Server running on port ${3000}`);
+loadEnv();
+
+const server = app.listen(env.PORT, async () => {
+  console.log(`Server running on port ${env.PORT}`);
 });
 
 const onCloseSignal = async () => {
